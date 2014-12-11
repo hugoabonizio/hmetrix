@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20141211165417) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sid"
+    t.string   "sid"
   end
 
   create_table "users", force: true do |t|

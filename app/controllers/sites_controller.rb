@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
@@ -21,7 +23,9 @@ class SitesController < ApplicationController
 
   # POST /sites
   def create
-    @site = Site.new(site_params)
+    hash = site_params
+    hash[:sid] = SecureRandom.hex(6)
+    @site = Site.new(hash)
 
     if @site.save
       redirect_to @site, notice: 'Site was successfully created.'
